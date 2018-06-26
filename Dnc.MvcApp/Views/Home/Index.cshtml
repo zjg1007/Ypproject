@@ -1,0 +1,79 @@
+﻿@model Dnc.Entities.Application.LogonInformation
+@{
+    Layout = "_Layout";
+    
+}
+
+<h1 class="page-header">欢迎进入-约票-信息管理系统</h1>
+<div class="row">   
+    <div class="col-lg-9">
+        <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="~/images/newsDemo.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>当前用户数量</h4>
+                <span class="text-muted">10000</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="~/images/newsDemo.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>文件库文章总数</h4>
+                <span class="text-muted">901</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="~/images/newsDemo.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>订阅用户</h4>
+                <span class="text-muted">当前用户数量：1000</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src="~/images/newsDemo.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <h4>合作伙伴信息</h4>
+                <span class="text-muted">洽谈中</span>
+            </div>
+        </div>
+        <br />
+        <div id="gotoSystem" style="display:none">
+            <a asp-area="" asp-controller="admin" asp-action="Index" class="btn btn-block btn-success">进入后台管理</a>
+        </div>
+        <div>
+            <a asp-area="" asp-controller="Account" asp-action="Register" class="btn btn-block btn-success">注册用户</a>
+        </div>
+    </div>
+    <div class="col-lg-3" id="logonFormDiv">
+        <form asp-controller="Account"
+              asp-action="Login"
+              asp-route-returnurl=""
+              method="post"
+              class="form-horizontal"
+              id="logonForm"
+              data-ajax-update='#logonFormContent'
+              data-ajax-mode='replace'
+              data-ajax='true'>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="UserName" class="col-md-2 control-label"></label>*@
+                <div class="col-md-12">
+                    <input asp-for="username" class="form-control" placeholder="请输入用户名..." />
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input asp-for="password" class="form-control" placeholder="请输入密码..." />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input id="yanzhen" name="yanzhen" class="form-control" placeholder="请输入验证码..." style="width:180px;float:left;" />
+                    <img  id="imgVerify" src="/Account/ValidateCode" alt="看不清？点击更换" onclick="this.src = this.src + '?'" style="vertical-align:middle;float:left;margin-left:10px;" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-block" onclick="postLogonForm()">登录</button>
+                </div>
+            </div>
+        </form>
+        <div id="logonTips"></div>
+    </div>
+</div>
+

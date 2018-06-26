@@ -1,0 +1,228 @@
+﻿<!-- 海外来风 -->
+<style>
+    .qq ul li {
+        float: left;
+        margin-left: 10px;
+    }
+
+        .qq ul li .color {
+            border: 1px solid #d7d7d7;
+            height: 15px;
+            width: 15px;
+            float: left;
+            margin-top: 4px;
+            margin-left: 10px;
+        }
+
+    .seat {
+        background: #d7d7d7;
+        height: 420px;
+    }
+
+        .seat .screen {
+            border: 1px solid #000000;
+            background: #ffffff;
+            height: 20px;
+            width: 95px;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        .seat .choice .col {
+            border: 1px solid #000000;
+            background: #ffffff;
+            height: 21px;
+            width: 21px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+    .info {
+        height: 60px;
+        margin-top: 5px;
+    }
+
+        .info .nav-left {
+            float: left;
+            height: 60px;
+            width: 196px;
+        }
+
+            .info .nav-left .upper {
+                height: 30px;
+            }
+
+            .info .nav-left .lower {
+                height: 30px;
+            }
+
+        .info .nav-right {
+            float: left;
+            height: 60px;
+            width: 125px;
+        }
+
+            .info .nav-right .money {
+                text-align: center;
+                margin-top: 15px;
+                color: red;
+            }
+</style>
+<link href="css/placeStyle.css" rel="stylesheet" />
+<ion-view ng-repeat="item in items">
+    <ion-nav-title>
+        <div style="padding:5px">
+            <!--<img src="images/demoLogo.png" width="20" height="20">-->
+            <span style="color:white;font-size:20px;margin-top:-5px"> {{item.movieName}} </span>
+        </div>
+    </ion-nav-title>
+    <ion-content class="padding" >
+        <h3>{{item.cinemaName}}</h3>
+        <h4><span style="color:red">今天{{item.statTime | date:"MM-dd"}} {{item.statTime | date:"HH:mm"}} （{{item.homeQuality}}）</span></h4>
+        <div class="qq" style="border:1px solid #d7d7d7;height:30px;">
+            <ul>
+                <li><div class="color"></div><span>可选</span></li>
+                <li><div class="color" style="background:#337ab7;"></div><span>已售</span></li>
+                <li><div class="color" style="background:green;"></div><span>已选</span></li>
+                <li><div class="color" style="border:1px dashed red;"></div><span>最佳观影区</span></li>
+            </ul>
+        </div>
+        <div class="seat">
+            <div class="screen ">
+                {{item.homeName}}荧幕
+            </div>
+            <div class="place">
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="clearfix">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="info">
+            <div class="nav-left">
+                <div class="upper">
+                    <span>你的手机号：</span>
+                </div>
+                <div class="lower">
+                    <span>{{username}}</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="money">票价{{price}}元</div>
+
+            </div>
+        </div>
+        <button class="button button-full button-positive" ng-click="subSeat()" ng-init="zuowei()">
+            确认选座
+        </button>
+    </ion-content>
+</ion-view>

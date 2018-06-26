@@ -1,0 +1,82 @@
+﻿@model Dnc.Entities.Application.ActorStatus
+@{
+    Layout = "_DNC";
+}
+<h1 class="page-header">@Model.Name</h1>
+
+<form id="formRegister" asp-controller="Actor" asp-action="Edit"
+      method="post" class="form-horizontal"
+          enctype="multipart/form-data"
+      >
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group" style="text-align:center;">
+        <div id="preview" style="text-align:center;display:inline-block;">
+            <img id="imghead" src="@Model.Photo" alt="" style="width:180px;height:180px;" />
+        </div>
+        <input style="display:inline-block;" type="file" name="files" onchange="previewImage(this)" value="更改头像" multiple />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" class="form-control" readonly />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ElseName" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="ElseName" class="form-control" />
+            <span asp-validation-for="ElseName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthDate" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="BirthDate" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd', readOnly: true, Date: '#F{$dp.$D(\'BirthDate\')}' })" />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Birthplace" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="Birthplace" values="@Model.Birthplace" id="Province" onchange="return select();">
+            </select>
+            <span asp-validation-for="Birthplace" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Profession" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Profession" class="form-control" />
+            <span asp-validation-for="Profession" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Intro" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <textarea asp-for="Intro" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Intro" class="text-danger"></span>
+        </div>
+    </div>
+    
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">提交</button>
+                @Html.ActionLink("返回", "Index",new {  },new { @class= "btn btn-default" })
+            </div>
+        </div>
+</form>
+
+@section Scripts {
+    <script type="text/javascript">
+        listInfo();
+            var selda = document.getElementById('Province');
+            var outsel = selda.getElementsByTagName('option');
+            for (var i = 0; i < outsel.length; i++) {
+                var value = outsel[i].getAttribute('value');
+                if (value == selda.getAttribute('values')) {
+                    outsel[i].setAttribute('selected', 'selected');
+                }
+            }
+    </script>
+}

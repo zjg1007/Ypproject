@@ -1,0 +1,41 @@
+﻿<!-- 个人中心 -->
+<
+<ion-view>
+    <ion-nav-title>
+        <div style="text-align:center;">
+            <span style="color:white;font-size:20px;">个人中心</span>
+        </div>
+    </ion-nav-title>
+
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()" style="z-index:999;"></ion-refresher>        <div class="list">
+            <div class="item item-divider"></div>
+            <a class="item item-avatar" href="#/tab/UserIndex" >
+                <img src="{{item.headimg}}">
+                <h2>{{item.name}}</h2>
+                <p>{{item.phonr}}</p>
+                <i class="icon ion-chevron-right icon-accessory irighticon"></i>
+            </a>
+            <div class="item item-divider"></div>
+        <a class="item" href="#/tab/MovieWrit">
+                <span class="fl">电影票</span>
+                <i class="icon ion-chevron-right icon-accessory fr"></i>
+            </a>
+            <a class="item" href="#/tab/updatePassword"  >
+                <span class="fl">修改密码</span>
+                <i class="icon ion-chevron-right icon-accessory fr"></i>
+            </a>
+            <a class="item" href="#/tab/SeenMovie">
+                <span class="fl">看过的电影</span>
+                <i class="icon ion-chevron-right icon-accessory fr"></i>
+            </a>
+            <a class="item" href="#/tab/WantMovie">
+                <span class="fl">想看的电影</span>
+                <i class="icon ion-chevron-right icon-accessory fr"></i>
+            </a>
+        </div>
+        <a class="bar bar-positive" href="javascript:void(0);" ng-click="logout()">
+            <div class="title" >注销</div>
+        </a>
+    </ion-content>
+</ion-view>

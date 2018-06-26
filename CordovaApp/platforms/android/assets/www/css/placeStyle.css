@@ -1,0 +1,29 @@
+﻿body {
+}
+.place {
+    border:1px dashed #ddd;
+    padding-top:10px;
+    
+}
+    .place ul {
+    width:100%;
+    display:flex;
+    }
+    .place ul li {
+    flex:1;
+    height:48px;
+    border:1px dashed #666;
+    border-radius:6px;
+    float:left;
+    background:#fff;
+    text-align:center;
+    line-height:1;
+    cursor:pointer;
+    }
+        .place ul li.hover {
+        background:green;
+        color:#fff;
+        }
+        .place ul li.select{
+            background:#337ab7;
+        }

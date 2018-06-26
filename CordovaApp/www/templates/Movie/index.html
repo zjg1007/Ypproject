@@ -1,0 +1,47 @@
+﻿<link href="css/cinaList.css" rel="stylesheet" />
+<ion-view>
+    <ion-nav-title>
+        <div style="text-align:center;">
+            <!--<img src="images/demoLogo.png" width="20" height="20">-->
+            <span style="color:white;font-size:20px;">{{name}}</span>
+        </div>
+    </ion-nav-title>
+    <ion-content>
+        <div class="list">
+            <div class="item">
+                <h2>{{CinemaName}}</h2>
+                <h2>{{CinemaSite}}</h2>
+                <p>{{CinemaServe}}</p>
+                <img src="http://vip8.ngrok.cc{{MoviePicture}}" width="100%"height="100%"/>
+                <div style="text-align:center;">评分：<span style="color:red;">{{MovieGrade}}</span></div>
+            </div>
+        </div>
+        <div class="test_box" width="100%">
+            <div class="test_tab" ng-repeat="item in items" width="100%">
+                <input type="radio" id="{{item.time}}1" class="test_radio" name="tab" checked="checked" />
+                <label class="test_label" for="{{item.time}}1">{{item.time}}</label>
+                <div class="test_tab_content" width="100%">
+                    <div href="javascript:void(0);" width="100%">
+                        <div class="button-bar1" width="100%">
+                            <div class="list" style="width:100%;">
+                                <div class="item" width="100%" ng-repeat="readen in item.readList">
+                                    <div class="fl">
+                                        <h2>{{readen.statTime | date:"HH:mm"}}</h2>
+                                        <h3>{{readen.endTime | date:"HH:mm"}}散场</h3></div>
+                                    <div class="fl" style="margin-left:36px;">
+                                        <h2>{{readen.homeQuality}}</h2>
+                                        <h3>{{readen.homeName}}</h3></div>
+                                    <div class="fr" style="text-align:center;">
+                                        <h3 style="color:red;">{{readen.price}}元</h3>
+                                        <button class="button button-large button-positive" ng-click="paymovie({{readen.id}})"> 购票</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+</a>
+                </div>
+            </div>
+        </div>
+</ion-content>
+</ion-view>

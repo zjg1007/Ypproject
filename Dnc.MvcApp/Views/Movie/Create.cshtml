@@ -1,0 +1,185 @@
+﻿@using Dnc.MvcApp.Filters;
+@using Dnc.Entities.Business;
+@using Dnc.Entities.Application;
+@model Dnc.Entities.Application.MovieSubclass
+@{
+    ViewBag.Title = "电影管理";
+    Layout = "_DNC";
+}
+<link href="~/css/MovieCreate.css" rel="stylesheet" />
+<form id="formMovieCreate" asp-controller="Movie" asp-action="Create"
+      method="post" class="form-horizontal" asp-route-returnurl="@ViewData["ReturnUrl"]"
+      data-ajax-update='#formMovieCreateContent'
+      data-ajax-mode='replace'
+      data-ajax='true'
+      enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <div class="form-group">
+            <label asp-for="Actor" class="col-md-2 control-label"></label>
+            <a asp-controller="Movie" asp-action="MovieActorInsert"  style="float:left;margin-left:20px;min-width:80px;"  class="btn btn-success ">添加</a><span style="float:right;color:red;">请先添加演员信息</span>
+            @if (ViewData["ActorList"] != null)
+            {
+                <div id="movieList" class="col-md-10 swiper-container3">
+                    <ul class="clearfix swiper-wrapper">
+                        @foreach (var item in ViewData["ActorList"] as List<Actor>)
+                        {
+                            <li class="dl swiper-slide" remid="@item.Id">
+                                <span>@item.Name</span>
+                                <img width="100%" height="100%" alt="" src="@item.Photo" />
+                                <a id="remoid" class="remoid" href="javascript:void(0);"  onclick="RemoveActor(@item.Id)">删除</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="form-group">
+            <label asp-for="Protagonist" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Protagonist" class="form-control" placeholder="请输入电影名称" />
+                <span asp-validation-for="Protagonist" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Name" class="form-control" placeholder="请输入电影名称" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Country" class="col-md-2  control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Country" class="form-control" placeholder="请输入电影发映国家" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group cityList">
+            <label asp-for="Nickname" class="col-md-2  control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Nickname" class="form-control"   placeholder="请输入改电影的英文名称"/>
+                <span asp-validation-for="Nickname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LaunchName" class="col-md-2  control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LaunchName" class="form-control Date" placeholder="请点击..."  readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd', readOnly: true, Date: '#F{$dp.$D(\'BirthDate\')}' })" />
+                <span asp-validation-for="LaunchName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duration" class="col-md-2  control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Duration" class="form-control" placeholder="请直接输入分钟（如  120）" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Mass" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Mass" class="selectpicker show-tick form-control">
+                    <option value="3D">3D</option>
+                    <option value="3DIMAX" selected>3DIMAX</option>
+                    <option value="普通2D">普通2D</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TypeId" class="col-md-2 control-label"></label>
+            <div id="typeList" class="col-md-10">
+                <ul>
+                    @foreach (var item in ViewData["TypeList"] as List<MType>)
+                    {
+                        <li>@item.Name</li>
+                    }
+                </ul>
+            </div>
+        </div>
+      
+        <label asp-for="Referral" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <textarea asp-for="Referral" class="form-control" rows="3" style="min-height:280px; margin-bottom:10px;"  placeholder="详细介绍下改电影"></textarea>
+            <span asp-validation-for="Referral" class="text-danger"></span>
+        </div>
+        <div class="form-group" style="text-align:center;">
+            <label class="col-sm-2 control-label">选择图片</label>
+            <div id="preview" style="float:left;margin-left:20px;">
+            </div>
+            <input style="display:inline-block;float:left;" type="file" id="files" name="files" onchange="previewImage(this)" value="更改头像" multiple />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" id="submoFormInfo" class="btn btn-default" onclick="postMovieForm()">提交</button>
+            @Html.ActionLink("返回", "Index", new { }, new { @class = "btn btn-default" })
+        </div>
+    </div>
+</form>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var storage = window.localStorage;
+            if (storage.length>0) {
+                var oName = document.getElementById('Name');
+                var oCountry = document.getElementById('Country');
+                var oNickname = document.getElementById('Nickname');
+                var oLaunchName = document.getElementById('LaunchName');
+                var oDuration = document.getElementById('Duration');
+                var oMass = document.getElementById('Mass');
+                var oReferral = document.getElementById('Referral');
+                var ofiles = document.getElementById('files');
+                var strList = '';
+                var strs = new Array();
+                oName.value = storage.getItem('oName');
+                oCountry.value = storage.getItem('oCountry');
+                oNickname.value = storage.getItem('oNickname');
+                oLaunchName.value = storage.getItem('oLaunchName');
+                oDuration.value = storage.getItem('oDuration');
+                oMass.value = storage.getItem('oMass');
+                oReferral.value = storage.getItem('oReferral');
+                ofiles.value = storage.getItem('ofiles');
+                strList = storage.getItem('strList');
+                strs = strList.split(',');//字符分割
+                var oli = $('#typeList ul li');
+                var This;
+                for (var i = 0; i < strs.length; i++) {
+                    for (var j = 0; j < oli.length; j++) {
+                        if (strs[i] == oli[j].innerHTML) {
+                            oli[j].classList.add('hover');
+                        }
+                    }
+                }
+            }
+            $('#movieList ul').css('width', ((($('#movieList ul li').size() % 5) + 1) * 100) + '%');
+            var mySwiper3 = new Swiper('.swiper-container3', {
+                resistanceRatio: 0.5,//抵抗率。边缘抵抗力的大小比例。值越小抵抗越大越难将slide拖离边缘，0时完全无法拖离。
+                slidesPerView: 5,//可以设置为number或者 'auto'则自动根据slides的宽度来设定数量。
+                spaceBetween: 10,//slide之间的距离（单位px）。
+                resistance: true, //继续拖动Swiper会离开边界，释放后弹回。
+                preloadImages: true,//默认为true，Swiper会强制加载所有图片。
+                updateOnImagesReady: true,//当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化。使用此选项需要先开启preloadImages: true
+            });
+            $('#movieList ul li').hover(function () {
+                $(this).find('a').stop().slideDown("fast");
+                $(this).find('span').stop().slideDown("fast");
+            }, function () {
+                $(this).find('a').stop().slideUp("fast");
+                $(this).find('span').stop().slideUp("fast");
+            });
+            if ($('#movieList ul li').size() == 0) {
+                //$('input,li,select,textarea').attr('disabled', 'disabled');
+                $('#typeList ul li').click(function () {
+                    $(this).toggleClass('hover');
+                });
+            } else {
+                $('input,li,select,textarea').removeAttr('disabled');
+                $('#typeList ul li').click(function () {
+                    $(this).toggleClass('hover');
+                });
+            }
+        });
+        
+    </script>
+}

@@ -1,0 +1,12 @@
+﻿body {
+}
+    .item-thumbnail-left, .item-thumbnail-left .item-content{
+        padding-left:30px;
+        min-height:74px;
+    }
+    .item-complex .item-content, .item-radio .item-content{
+        padding:0;
+    }
+    .item-complex.item-icon-right .item-content {
+        padding:10px 0 0 30px;
+    }

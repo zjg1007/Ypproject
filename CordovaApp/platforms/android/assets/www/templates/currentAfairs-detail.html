@@ -1,0 +1,33 @@
+﻿<!-- 行业要闻条目详细数据页面 -->
+
+<link href="css/cinaList.css" rel="stylesheet" />
+<ion-view>
+    <ion-nav-title>
+        <div>
+            <span style="color:white;font-size:20px;"> {{name}} </span>
+        </div>
+    </ion-nav-title>
+    <!--#/tab/currentAfairs-detail/{{cinaleList.cinemaID}}-->
+    <ion-content >
+        <div class="test_box">
+            <div class="test_tab" ng-repeat="item in item">
+                <input type="radio" id="{{item.time}}" class="test_radio" name="tab" checked="checked" />
+                <label class="test_label" for="{{item.time}}">{{item.time}}</label>
+                <div class="test_tab_content">
+                        <a href="javascript:void(0);"  ng-click="locationMovie({{cinaleList.cinemaID}})" class="item" ng-repeat="cinaleList in item.getReadyplayList">
+                            <h2>{{cinaleList.cinemaName}}&nbsp;<span style="float:right;"><span style="color:red;">{{cinaleList.price}}</span>元起</span></h2>
+                            <h3>{{cinaleList.cinemaSite}}</h3>
+                            <h4>{{cinaleList.movieName}}</h4>
+                            <div class="button-bar1">
+                                <div class="button1" ng-repeat="readen in item.readList">
+                                    <h4>{{readen.statTime | date:"HH:mm"}}</h4>
+                                    <h4>{{readen.homeQuality}}</h4>
+                                    <h4>{{readen.price}}元</h4>
+                                </div>&nbsp;
+                            </div>
+                        </a>
+                </div>
+            </div>
+        </div>
+</ion-content>
+</ion-view>

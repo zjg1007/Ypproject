@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+
+    <title>Portal</title>
+</head>
+<body>
+
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" id="equipmentInformation">设备</button>
+        <button type="button" class="btn btn-default" id="networkInformation">网络</button>
+        <button type="button" class="btn btn-default" id="getAccel">空间位置</button>
+        <button type="button" class="btn btn-default" id="noticeInfo">对话框</button>
+        <button type="button" class="btn btn-default" id="gpsInfo">GPS数据</button>
+        <button type="button" class="btn btn-default" id="cameraInfo">拍照</button>
+        <button type="button" class="btn btn-default" id="sqliteDemo">sqliteDemo</button>
+    </div>
+
+    <h2 id="apiClassName">Cordova对象</h2>
+    <h3 id="apiClassDescription">简要说明</h3>
+
+    <div class="container">
+        <div id="apiContent"></div>
+    </div>
+    
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/localStore/store.min.js"></script>
+
+    <script type="text/javascript" src="scripts/protal.js"></script>
+</body>
+</html>

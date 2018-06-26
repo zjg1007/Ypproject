@@ -1,0 +1,12 @@
+/* Empty. Add your own CSS if you like */
+
+.tab-item  i.icon {
+    margin-top: 1px;
+}
+.bar-home-on {
+    background: url(../images/IconDemo-On.png) no-repeat center top
+}
+
+.bar-home-off {
+    background: url(../images/IconDemo-off.png) no-repeat center top
+}

@@ -1,0 +1,141 @@
+﻿@using Dnc.MvcApp.Filters;
+@model IEnumerable<Dnc.Entities.Business.Launch>
+@{
+    ViewBag.Title = "上映信息管理";
+    Layout = "_DNC";
+}
+<style>
+    table tr td {
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    table tbody tr {
+        max-height: 40px !important;
+        overflow: hidden;
+    }
+
+    .form-control {
+        width: 220px;
+        display: inline-block;
+    }
+
+    .btn-success {
+        width: 90px;
+    }
+
+    #formIndex {
+        margin: 0 0 10px 35%;
+    }
+
+    table tr td, th {
+        text-align: center;
+    }
+</style>
+<script src="~/js/jquery.min.js"></script>
+<link href="~/css/Launchinfo.css" rel="stylesheet" />
+<h2 class="page-header">电影&nbsp;@ViewData["name"]</h2>
+<form  asp-controller="Movie" asp-action="Index"
+      method="post">
+    @foreach (var item in Model)
+    {
+        <div class="shangyinfo clearfix">
+            <div class="input-group fl">
+                <span class="input-group-addon">上映时间</span>
+                <input type="text" asp-for="@item.Date"  class="form-control Date" placeholder="请点击..."  readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd', readOnly: true, Date: '#F{$dp.$D(\'BirthDate\')}' })">
+            </div>
+            <div class="input-group fl" style="margin-left:10px;">
+                <span class="input-group-addon">上映地区及国家</span>
+                <input type="text" asp-for="@item.Region" class="form-control Region" placeholder="请输入上映地区">
+            </div>
+            <div class="tab">
+                <button id="removebtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+    }
+    @if (Model.Count()==0)
+    {
+        <div class="shangyinfo clearfix">
+            <div class="input-group fl">
+                <span class="input-group-addon">上映时间</span>
+                <input type="text" id="Date"   class="form-control Date" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd', readOnly: true, Date: '#F{$dp.$D(\'BirthDate\')}' })">
+            </div>
+            <div class="input-group fl" style="margin-left:10px;">
+                <span class="input-group-addon">上映地区及国家</span>
+                <input type="text" id="Region" class="form-control Region" placeholder="请输入上映地区">
+            </div>
+            <div class="tab">
+                <button id="removebtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+
+    }
+</form>
+<div style="text-align:center;">
+    <button type="button" onclick="AddLaunchinfo()" class="btn btn-success">保存</button>
+</div>
+<script type="text/javascript">
+    var storage = window.localStorage;
+    storage.clear();
+    $(document).ready(function () {
+        $('.shangyinfo:last').find('.tab').prepend('<button id="Addbtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>');
+        $('.shangyinfo:last').find('.tab #removebtn').attr('style', 'right:4px!important;');
+     });
+    $('#Addbtn').click( function () {
+        $(this).remove();
+        //$('.tab').append('<button id="removebtn" type="button"  class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+        $('#removebtn').css('right', '12px');
+        $('form').append('<div class="shangyinfo clearfix">\
+        <div class="input-group fl">\
+            <span class="input-group-addon">上映时间</span>\
+            <input type="text" id="Date" class="form-control Date" placeholder="请点击..."  readonly="readonly" onclick="WdatePicker({ dateFmt: ' + "'" + 'yyyy-MM-dd' + "'" + ', readOnly: true, Date: ' + "'" + '#F{$dp.$D(' + "\\'" + 'BirthDate' + "\\'" + ')}' + "'" + ' })">\
+        </div>\
+        <div class="input-group fl" style="margin-left:10px;">\
+            <span class="input-group-addon">上映地区及国家</span>\
+            <input type="text" id="Region" class="form-control Region" placeholder="请输入上映地区">\
+        </div>\
+        <div class="tab">\
+            <button id="Addbtn" type="button"  class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>\
+            <button id="removebtn" type="button" style="right:4px!important;"  class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+        </div>\
+    </div>');
+    });
+    $("form").on('click', '.shangyinfo .tab #Addbtn', function () {
+        $(this).parent('.tab').find('#removebtn').attr('style', 'right:12px!important;');
+        $(this).remove();
+        if ($('#removebtn').size() == 0) {
+            $('.tab').append('<button id="removebtn" type="button" style="right:12px!important;"  class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+        }
+        $('form').append('<div class="shangyinfo clearfix">\
+        <div class="input-group fl">\
+            <span class="input-group-addon">上映时间</span>\
+            <input type="text" id="Date" class="form-control Date" placeholder="请点击..."  readonly="readonly" onclick="WdatePicker({ dateFmt: ' + "'" + 'yyyy-MM-dd' + "'" + ', readOnly: true, Date: ' + "'" + '#F{$dp.$D(' + "\\'" + 'BirthDate' + "\\'" + ')}' + "'" + ' })">\
+        </div>\
+        <div class="input-group fl" style="margin-left:10px;">\
+            <span class="input-group-addon">上映地区及国家</span>\
+            <input type="text" id="Region" class="form-control Region" placeholder="请输入上映地区">\
+        </div>\
+        <div class="tab">\
+            <button id="Addbtn" type="button"  class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>\
+            <button id="removebtn" type="button" style="right:4px!important;"  class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+        </div>\
+    </div>');
+    });
+    $("form").on('click', '.shangyinfo .tab #removebtn', function () {
+        if ($('form .shangyinfo').size() == 1) {
+            alert('请保留一个.');
+        } else {
+            $(this).parent('.tab').parent('.shangyinfo').remove();
+        }
+        if ($('form .shangyinfo').size() == 1) {
+            $('.shangyinfo .tab').html('<button id="Addbtn" type="button"  class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>');
+        }
+    })
+    $("form").on('mouseover', '.shangyinfo', function () {
+        $(this).find('.tab').stop().show();
+    });
+    $("form").on('mouseout', '.shangyinfo', function () {
+        $(this).find('.tab').stop().hide();
+    });
+</script>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; media-src *">-->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script src="lib/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+    <link href="lib/bootstrap/css/bootstrapValidator.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/portal.css">
+
+    <title>CordovaApp</title>
+</head>
+<body>
+    <div class="app" style="width:100%; left:0; margin:-115px 0px 0px 0px;">
+        <div class="panel panel-primary" style="width:100%;">
+            <div class="panel-body">
+                用户注册
+            </div>
+            <div class="panel-footer">
+                <div class="container">
+                    <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入用户名" value="">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="请输入登录密码" style="margin-top:10px" value="">
+                    <div id="logonStatusPrompt" style="color:red">
+                    </div>
+                <button id="register"   type="button" class="btn btn-primary  btn-block" style="margin-top:10px;">提交</button>
+                    <a href="index.html" class="btn btn-primary  btn-block">返回登陆</a>
+            </div>
+        </div>
+        </div>
+    </div>
+        <!-- 加载 Cordova 框架-->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+
+        <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="lib/localStore/store.min.js"></script>
+
+        <!-- 加载当前页面的相关的基础设置和相关的页面js代码 -->
+    <script src="scripts/register.js"></script>
+</body>
+</html>
+

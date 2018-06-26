@@ -1,0 +1,177 @@
+﻿@model Dnc.Entities.Application.Cinmaparse
+@{
+    Layout = "_DNC";
+    ViewBag.Title = "影院修改";
+}
+
+<h1 class="page-header">影院修改</h1>
+
+<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
+<script src="http://webapi.amap.com/maps?v=1.3&key=df4c23220cbe1a4e06fe931cae79fd05&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>
+<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+<form id="formRegister" asp-controller="Cinema" asp-action="Edit"
+      asp-route-returnurl="@ViewData["ReturnUrl"]"
+      method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="Id" type="hidden" class="form-control" />
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" readonly="readonly" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Site" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Site" placeholder="请输入地址进行搜索" class="form-control" />
+            <span asp-validation-for="Site" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Region" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Region" readonly="readonly" class="form-control" />
+            <span asp-validation-for="Region" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Serve" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Serve" class="form-control" />
+            <span asp-validation-for="Serve" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group" id="container" style="display:inline; margin:320px auto 0; width:100%;height:300px;">
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10" style="text-align:center;">
+            <button type="submit" class="btn btn-primary " style="width:200px">提交</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script type="text/javascript">
+        var dress;//地址信息
+        var position;//位置,经纬度
+        var city;//城市
+        var geocoder;
+        var index = 0;
+        //地图加载
+        var map = new AMap.Map("container", {
+            zoom: 13,
+            resizeEnable: true
+        });
+        //地图定位
+        map.plugin('AMap.Geolocation', function () {
+            geolocation = new AMap.Geolocation({
+                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 0,           //定位结果缓存0毫秒，默认：0
+                convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+                showButton: true,        //显示定位按钮，默认：true
+                buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
+                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+                zoomToAccuracy: true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            });
+            map.addControl(geolocation);
+            AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+            AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+        });
+        //解析定位结果
+        function onComplete(data) {
+            var str = ['定位成功'];
+            str.push('经度：' + data.position.getLng());
+            str.push('纬度：' + data.position.getLat());
+            if (data.accuracy) {
+                str.push('精度：' + data.accuracy + ' 米');
+            }//如为IP精确定位结果则没有精度信息
+            str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+            document.getElementById('tip').innerHTML = str.join('<br>');
+        }
+        //解析定位错误信息
+        function onError(data) {
+            document.getElementById('tip').innerHTML = '定位失败';
+        }
+        //输入提示
+        var autoOptions = {
+            input: "Site"
+        };
+        var auto = new AMap.Autocomplete(autoOptions);
+        var placeSearch = new AMap.PlaceSearch({
+            map: map
+        });  //构造地点查询类
+
+
+        AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+        function select(e) {
+            placeSearch.setCity(e.poi.adcode);
+            placeSearch.search(e.poi.name, function (status, result) {
+                if (status === 'complete' && result.info === 'OK') {
+                    keywordSearch_CallBack(result);
+                }
+            });  //关键字查询查询
+        }
+        var marker = new AMap.Marker({
+            position: map.getCenter(),
+            draggable: true,
+            raiseOnDrag: true,
+            cursor: 'pointer'
+        });
+        marker.setMap(map);
+        //在指定位置打开信息窗体
+        //构建信息窗体中显示的内容
+        var info = [];
+        info.push("<div><div style=\"padding:0px 0px 0px 4px;\"><b style=\"color:#ff6a00; font-size:14px;\" >约票</b>");
+        info.push("点击我为您导航</div></div>");
+        infoWindow = new AMap.InfoWindow({
+            content: info.join("<br/>"),  //使用默认信息窗体框样式，显示信息内容
+            offset: new AMap.Pixel(10, -30)//-113, -140
+        });
+        infoWindow.open(map, map.getCenter());
+        //回调函数
+        function keywordSearch_CallBack(data) {
+            //map.setFitView();
+            setTimeout(function () {
+                marker.setPosition(map.getCenter());
+                marker.setOffset(new AMap.Pixel(0, -30));
+                //在指定位置打开信息窗体
+                //构建信息窗体中显示的内容
+                var info = [];
+                info.push("<div><div style=\"padding:0px 0px 0px 4px;\"><b style=\"color:#ff6a00; font-size:14px;\"    >约票</b>");
+                info.push("点击我为您导航</div></div>");
+                infoWindow = new AMap.InfoWindow({
+                    content: info.join("<br/>"),  //使用默认信息窗体框样式，显示信息内容
+                    offset: new AMap.Pixel(10, -30)//-113, -140
+                });
+                infoWindow.open(map, map.getCenter());
+            },500);
+
+        }
+        var content;
+        AMap.plugin('AMap.Geocoder', function () {
+            geocoder = new AMap.Geocoder({
+                city: "010"//城市，默认：“全国”
+            });
+            //标注鼠标松开事件绑定
+            AMap.event.addListener(marker, 'dragging', function (e) {
+                map.clearInfoWindow();
+                //通过经纬度获取地址信息
+                geocoder.getAddress(marker.getPosition(), function (status, result) {
+                    if (status == 'complete') {
+                        var info = result.regeocode.addressComponent;
+                        document.getElementById('Site').value = info.province + info.city + info.district + info.street + info.township + info.streetNumber;
+                        document.getElementById('Region').value = result.regeocode.addressComponent.city;
+
+                    }
+                })
+            });
+        });
+
+    </script>
+}

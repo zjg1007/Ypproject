@@ -1,0 +1,21 @@
+﻿<!-- 影院列表 -->
+<ion-view>
+   
+    <ion-nav-title>
+        <div>
+            <span style="color:white;font-size:20px;"> {{title}} </span>
+        </div>
+    </ion-nav-title>
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()" style="z-index:999;"></ion-refresher>
+        <div class="list">
+            <a class="item" ng-repeat="item in CinemaListAll" href="#/tab/opinionLeaders/{{item.cinemaID}}" >
+                <h2>{{item.cinemaName}}<span class="fr"><span style="color:red;">{{item.price}}</span>元起</span></h2>
+                <h3>{{item.cinemaSite}}</h3>
+                <h3 style="color:#40beee;">{{item.cinemaServe}}</h3>
+                <h4>{{item.movieName}}有特惠</h4>
+                <i class="icon ion-chevron-right icon-accessory irighticon"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

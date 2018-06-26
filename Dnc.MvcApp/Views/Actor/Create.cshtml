@@ -1,0 +1,74 @@
+﻿@model Dnc.Entities.Application.ActorStatus
+@{
+    Layout = "_DNC";    
+}
+<h1 class="page-header">演员信息新增</h1>
+    <form id="formRegister" asp-controller="Actor" asp-action="ActorInsert"
+          method="post" class="form-horizontal"asp-route-returnurl="@ViewData["ReturnUrl"]"
+          data-ajax-update='#formRegisterContent'
+              data-ajax-mode='replace'
+              data-ajax='true'
+          enctype="multipart/form-data" style="width:80%;margin:0 auto;"
+          >
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group" style="text-align:center;">
+            <label class="col-sm-2 control-label">选择图片</label>
+            <div id="preview" style="text-align:center; display:inline-block;">
+            </div>
+            <input style="display:inline-block;" type="file" name="files" onchange="previewImage(this)" value="更改头像" multiple />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Name" class="form-control" placeholder="请输入演员的姓名"  />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ElseName" class="col-md-2  control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ElseName" class="form-control" placeholder="请输入演员的英文名字" />
+                <span asp-validation-for="ElseName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group cityList">
+            <label asp-for="Birthplace" class="col-md-2  control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Birthplace" class="selectpicker show-tick form-control" id="Province" onchange="return select();"></select>
+                @*<input asp-for="Birthplace" class="form-control" />*@
+                <span asp-validation-for="Birthplace" class="text-danger"></span>
+                <div id="resultShow" style="color: #f0ad4e;"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BirthDate" class="col-md-2  control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BirthDate" class="form-control Date" placeholder="请点击..."  readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd', readOnly: true, Date: '#F{$dp.$D(\'BirthDate\')}' })" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Profession" class="col-md-2  control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Profession"  class="form-control" placeholder="请以,隔开如：模特,导演"/>
+                <span asp-validation-for="Profession" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Intro" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Intro" class="form-control" rows="3" style="min-height:280px;" placeholder="描述下改演员"></textarea>
+                <span asp-validation-for="Intro" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" id="subFormInfo" class="btn btn-default" onclick="postActorForm()">提交</button>
+            </div>
+        </div>
+    </form>
+@section Scripts {
+    <script type="text/javascript">
+        listInfo();
+    </script>
+}

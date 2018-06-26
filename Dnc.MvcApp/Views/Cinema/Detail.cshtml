@@ -1,0 +1,237 @@
+﻿@using Dnc.MvcApp.Filters;
+@using Dnc.Entities.Business;
+@model Dnc.ViewModels.Article.HomeVM
+@{
+    ViewBag.Title = "影厅管理";
+    Layout = "_DNC";
+}
+<link href="~/css/placeStyle.css" rel="stylesheet" />
+<form id="formCinema" asp-controller="Cinema" asp-action="Detail"
+      asp-route-returnurl="@ViewData["ReturnUrl"]"
+      method="post" class="form-horizontal"
+      data-ajax-update='#formCinemaContent'
+      data-ajax-mode='replace'
+      data-ajax='true'
+      >
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">影厅管理——@ViewData["cinemaName"] <a href="javascript:void(0);" class="glyphicon glyphicon-arrow-left btn fr" style="margin-top:-10px;" onclick="back()"></a></h3>
+        </div>
+        <div class="panel-body">
+            @*<input asp-for="Place" class="form-control"  placeholder="请输入"/>
+            <span asp-validation-for="Place" class="text-danger"></span>*@
+            <div id="seat">
+                <h5>请选择前台显示的座位<a href="javascript:void(0);" id="allChoose" style="margin-left:20px;">全选</a><a href="javascript:void(0);" id="cancel" style="margin-left:10px;">全部取消</a></h5>
+                <div class="place">
+                    <ul class="clearfix" >
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="clearfix">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <input asp-for="Name"  placeholder="请输入影厅名称,如(5号厅)" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="panel-body ">
+            <select asp-for="Quality"class="selectpicker show-tick form-control">
+                <option value="3D">3D</option>
+                <option value="3DIMAX" selected>3DIMAX</option>
+                <option value="普通2D">普通2D</option>
+            </select>
+        </div>
+        <div class="form-group" style="text-align:center;">
+                <button type="button" class="btn btn-primary" onclick="AddCinma()" style="width:120px;">增加</button>
+        </div>
+    </div>
+   
+</form>
+<div class="row">
+    <div class="col-md-6">
+        <div class="list-group">
+            <a href="javascript:void(0);"
+               class="list-group-item active">
+                @ViewData["cinemaName"]——影厅
+            </a>
+            @if (ViewData["homelist"] != null)
+            {
+                @foreach (var item in ViewData["homelist"]as List<Home>)
+                {
+                    <a asp-controller="Cinema"
+                       asp-action="HomeEdit"
+                       asp-route-id="@item.Id"
+                       class="list-group-item">
+                        @item.Name
+                        <span class="fr">ID：@item.Id</span>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="list-group">
+            <a href="javascript:void(0);"
+               class="list-group-item active">
+                @ViewData["cinemaName"]——即将上映
+            </a>
+            @if (ViewData["movielist"] != null)
+            {
+                @foreach (var item in ViewData["movielist"] as List<Readyplay>)
+                {
+                    <a asp-controller="Cinema"
+                       asp-action="HomeEdit"
+                       asp-route-id="@item.Id"
+                       class="list-group-item">
+                        @item.Movie.Name
+                        <span class="fr">ID：@item.Id</span>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            //影院座位效果 start
+            var orow = $('#seat .place ul');
+            var ocolumn = $('#seat .place ul li');
+            var strlist = new Array();
+            for (var i = 1; i <= orow.length; i++) {
+                for (var j = 1; j <= 12; j++) {
+                    strlist.push(i + '排' + j + '座');
+                }
+            }
+            for (var i = 0; i < ocolumn.length; i++) {
+                var obox = document.createElement('div');
+                obox.style = 'display:none;';
+                obox.innerHTML = strlist[i];
+                ocolumn[i].append(obox);
+            }
+            ocolumn.click(function () {
+                $(this).toggleClass('hover');
+                $(this).find('div').stop().toggle();
+            });
+            $('#allChoose').click(function () {
+                ocolumn.addClass('hover');
+                ocolumn.find('div').show();
+            });
+            $('#cancel').click(function () {
+                ocolumn.removeClass('hover');
+                ocolumn.find('div').hide();
+            });
+            //影院座位效果 end
+        });
+        
+    </script>
+}

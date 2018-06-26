@@ -1,0 +1,203 @@
+﻿@model Dnc.ViewModels.Article.EnterpriseVM
+@{
+    Layout = "_DNC";
+}
+<style>
+    #detailinfo {
+        background: #fff;
+        width: 540px;
+        height: 510px;
+        position: absolute;
+        margin-top: 100px;
+        top: -80px;
+        left: 50%;
+        margin-left: -400px;
+        transition: all .3s;
+        border: 1px solid #dedede;
+        box-shadow: -4px 0px 11px 0px rgba(0,0,0,0.14);
+        overflow: hidden;
+    }
+
+        #detailinfo .top {
+            font-family: 'Microsoft YaHei';
+            font-size: 18px;
+            line-height: 50px;
+            padding: 0 20px;
+            border-bottom: 1px solid #dedede;
+            color: #ff6a00;
+            font-weight: bold;
+        }
+
+        #detailinfo .top-title {
+            background: #eceff4;
+            display: block;
+            width: 100%;
+            height: 38px;
+            line-height: 38px;
+            padding-left: 10px;
+        }
+
+        #detailinfo .conten {
+            padding: 0 20px;
+            font-family: 'Microsoft YaHei';
+        }
+
+    .btnall {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .form-control {
+        width: 400px;
+    }
+    .fl {
+    float:left;
+    }
+    .fr {
+    float:right;
+    text-decoration: double;
+    cursor:pointer;
+    }
+    .clearfix:after{
+	display:block; 
+	content:"clear"; 
+	height:0; 
+	clear:both; 
+	overflow:hidden; 
+	visibility:hidden;
+}
+    #detailinfofr {
+     background: #fff;
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        margin-top: 100px;
+        top:-80px;
+        right: 0;
+        margin-left: -400px;
+        transition: all .3s;
+        border: 1px solid #dedede;
+        box-shadow: -4px 0px 11px 0px rgba(0,0,0,0.14);
+        overflow: hidden;
+        transition:all .4s;
+    }
+</style>
+<div id="detailinfo">
+    <div class="top clearfix">
+        <div class="fl"> @Model.EnterpriseName</div>
+        <div class="fr ">认证凭证</div>
+    </div>
+    <div class="conten">
+        <span class="top-title">企业信息</span>
+        <form id="formRegister" asp-controller="Article" asp-action="Detail"
+              asp-route-returnurl="@ViewData["ReturnUrl"]"
+              method="post" class="form-horizontal">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.Account" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.Account" class="form-control"  />
+                    <span asp-validation-for="@Model.Account" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.CompanyAddress" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.CompanyAddress" class="form-control"  />
+                    <span asp-validation-for="@Model.CompanyAddress" class="text-danger"></span>
+                </div>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="@Model.CompanyIndustry" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.CompanyIndustry" class="form-control"  />
+                    <span asp-validation-for="@Model.CompanyIndustry" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.CompanySize" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.CompanySize" class="form-control"  />
+                    <span asp-validation-for="@Model.CompanySize" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Contact" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.Contact" class="form-control"  />
+                    <span asp-validation-for="@Model.Contact" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PhoneNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.PhoneNumber" class="form-control"  />
+                    <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Email" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.Email" class="form-control"  />
+                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="btnall">
+                <button type="submit" class="btn btn-primary" style="width:100px">保存</button>
+              
+                @if (Model.Certification==false)
+                {
+                    <a asp-controller="Article" asp-action="Titles" asp-route-id="@Model.ID" class="btn btn-danger">
+                        通过认证
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Article" asp-action="NoTitles" asp-route-id="@Model.ID" class="btn btn-danger">
+                        封停此企业
+                    </a>
+                }
+
+                <a asp-controller="Article" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-warning">
+                    查看招聘信息
+                </a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="detailinfofr">
+<div class="contenfr">
+    <div class="form-group">
+        <label asp-for="@Model.Code" class="col-md-2 control-label" style="width:140px"></label>
+        <div class="col-md-10">
+            <input  asp-for="@Model.Code" class="form-control" readonly  style="width:250px;background:#fff;"/>
+            <span asp-validation-for="@Model.Code" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.RepresentativeName" class="col-md-2 control-label" style="width:140px"></label>
+        <div class="col-md-10">
+            <input asp-for="@Model.RepresentativeName" class="form-control" readonly style="width:250px;background:#fff;" />
+            <span asp-validation-for="@Model.RepresentativeName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.FixedTelephone" class="col-md-2 control-label" style="width:140px;background:#fff;"></label>
+        <div class="col-md-10">
+            <img src="~/images/newsDemo.jpg" width="370" height="300" style="border-radius:6px"/>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    var xid = document.getElementsByClassName('fr')[0];
+    var xdiv = document.getElementById('detailinfofr');
+    xid.onclick = function () {
+        xdiv.style.width = '400px';
+        xdiv.style.height = '480px';
+    };
+ 
+</script>

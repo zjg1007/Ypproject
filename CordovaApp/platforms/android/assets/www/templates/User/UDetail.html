@@ -1,0 +1,36 @@
+﻿<link href="../../css/andex.css" rel="stylesheet" />
+<ion-view>
+    <ion-nav-title>
+    </ion-nav-title>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left item-icon-right"
+                      type="item-text-wrap" style="padding-left:150px;min-height:150px;">
+                <img ng-src="http://vip8.ngrok.cc{{ items.movieApiModel.picture }}" style="max-width:120px;max-height:130px;">
+                <a href="javascript:void(0);">
+                    <h2>{{items.movieApiModel.name}}&nbsp;|&nbsp;{{items.movieApiModel.mass}}</h2>
+                    <h4>{{items.movieApiModel.nickname}}</h4>
+                    <div></div>
+                    <h3>{{items.movieApiModel.typeId}}</h3>
+                    <h3 ng-click="shangyinginfo()">{{items.movieApiModel.launchName}}上映&nbsp;></h3>
+                    <p>☆☆★&nbsp;{{items.movieApiModel.grade}}分</p>
+                </a>
+            </ion-item>
+        </ion-list>
+        <div class="card">
+            <h3>影片简介</h3>
+            <div class="item item-text-wrap">
+                {{items.movieApiModel.referral}}
+            </div>
+        </div>
+        <h4>演职人员</h4>
+        <div class="item clearfix" style="width:100%;">
+            <div class="todabuyimg clearfix swiper-container3" style="height:90px;">
+                <ul class="clearfix swiper-wrapper">
+                    <li style="height:90px;" class="swiper-slide oli" ng-repeat="item in items.actor"><a href="javascript:void(0);"><img src="http://vip8.ngrok.cc{{item.photo}}" style="width:100%;height:100%" /></a><div>{{item.name}}</div></li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<div ng-init="banner()"></div>

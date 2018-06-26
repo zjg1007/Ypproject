@@ -1,0 +1,84 @@
+﻿@using Dnc.MvcApp.Filters;
+@model Dnc.Entities.Business.Readyplay
+@{
+    ViewBag.Title = "上映信息管理";
+    Layout = "_DNC";
+}
+<style>
+    table tr td {
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    table tbody tr {
+        max-height: 40px !important;
+        overflow: hidden;
+    }
+
+    .form-control {
+        width: 220px;
+        display: inline-block;
+    }
+
+    .btn-success {
+        width: 90px;
+    }
+
+    #formIndex {
+        margin: 0 0 10px 35%;
+    }
+
+    table tr td, th {
+        text-align: center;
+    }
+</style>
+<script src="~/js/jquery.min.js"></script>
+<link href="~/css/ProsceniumStyle.css" rel="stylesheet" />
+<form id="formProsceniumInfo" asp-controller="Proscenium" asp-action="Edit"
+      method="post">
+    <input type="hidden" asp-for="Id"/>
+    <div class="panel panel-primary">
+        <div class="panel-heading ">
+            <h3 class="panel-title">修改信息</h3>
+        </div>
+        <div class="shangyinfo clearfix">
+            <div class="input-group  parent">
+                <span class="input-group-addon">价格</span>
+                <input type="number" asp-for="Price" class="form-control Price" placeholder="请输入价格">
+            </div>
+            <div class="input-group parent">
+                <span class="input-group-addon">影院ID</span>
+                <input type="number" asp-for="CinemaID" class="form-control CinemaID" placeholder="请输入影院ID">
+            </div>
+            <div class="input-group parent">
+                <span class="input-group-addon">影厅ID</span>
+                <input type="number" asp-for="HomeID" class="form-control HomeID" placeholder="请输入影厅ID">
+            </div>
+            <div class="input-group parent">
+                <span class="input-group-addon">电影ID</span>
+                <input type="number" asp-for="MovieID" class="form-control MovieID" placeholder="请输入电影ID">
+            </div>
+            <div class="TimeList clearfix">
+                <div class="fl" style="width:100%;height:1px;margin:4px 0;"></div>
+                <div class="input-group widhmax">
+                    <span class="input-group-addon">开始时间</span>
+                    <input  asp-for="StatTime" class="form-control StatTime" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true })" />
+                </div>
+                <div class="input-group widhmax" style="margin-left:10px;">
+                    <span class="input-group-addon">结束时间</span>
+                    <input asp-for="EndTime" class="form-control EndTime" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true })" />
+                </div>
+            </div>
+
+        </div>
+        <div style="text-align:center; margin-top:10px;">
+            <button type="submit" class="btn btn-success">保存</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    var storage = window.localStorage;
+    storage.clear();
+</script>

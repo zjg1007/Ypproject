@@ -1,0 +1,122 @@
+﻿<!-- 确认订单 -->
+<style>
+    .list1 {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #ccc;
+        margin-top: 3px;
+        border-left: none;
+        border-right: none;
+    }
+
+        .list1 .left {
+            float: left;
+            width: 100px;
+            margin-top: 9px;
+            margin-bottom: 5px;
+        }
+
+        .list1 .left1 {
+            float: left;
+            width: 165px;
+            margin-top: 9px;
+            margin-bottom: 5px;
+        }
+
+        .list1 .right {
+            float: left;
+            margin-left: 170px;
+            width: 30px;
+            margin-top: 9px;
+            margin-bottom: 5px;
+        }
+
+        .list1 .right1 {
+            float: left;
+            margin-left: 45px;
+            width: 153px;
+            margin-top: 9px;
+            margin-bottom: 5px;
+        }
+
+        .list1 .right2 {
+            float: left;
+            margin-left: 57px;
+            width: 100px;
+            margin-top: 9px;
+            margin-bottom: 5px;
+        }
+
+        .list1 a {
+            margin-top: 9px;
+            margin-bottom: 5px;
+        }
+
+            .list1 a img {
+                margin-top: 9px;
+                margin-bottom: 5px;
+            }
+
+    .ticket {
+        width: 100%;
+        height: 200px;
+        border: 1px solid #ccc;
+        margin-top: 3px;
+        border-left: none;
+        border-right: none;
+    }
+
+        .ticket span {
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .ticket p {
+            font-size: 12px;
+            line-height: 16px;
+        }
+</style>
+<ion-view>
+    <ion-nav-title>
+        <div style="padding:5px">
+            <span style="color:white;font-size:20px;margin-top:-5px;margin-left:145px;">确认订单</span>
+        </div>
+    </ion-nav-title>
+
+    <ion-content class="padding">
+        <h4>金刚狼3：殊死一战</h4>
+        <h5><span style="color:red">今天3-25 19:10—21：13 （原版IMAX2D）</span></h5>
+        <h5>柳州万达影城城中店&nbsp;&nbsp;10号厅—IMAX</h5>
+        <h5>6排18座</h5>
+        <div class="list1">
+            <div class="left">电影代金券</div>
+            <div class="right">1张</div>
+            <a class="voucher" href="#">
+                <img src="../images/greater.png" width="20" height="20" />
+            </a>
+        </div>
+        <div class="list1">
+            <div class="left">票价总计</div>
+            <div class="right1">含服务费3元/张&nbsp;&nbsp;<span style="color:red">33.8元</span></div>
+            <a class="voucher" href="#">
+                <img src="../images/greater.png" width="20" height="20" />
+            </a>
+        </div>
+        <div class="ticket">
+            <span>购票须知</span>
+            <p>1、请确认场次和时间无误，购买成功后将不给予退换</p>
+            <p>2、由于设备故障等不可抗力因素，存在少量场次取消的情况，会进行退票退款</p>
+            <p>3、由于影院系统不稳定等因素，存在出票失败的情况，会进行退款</p>
+            <p>4、取票码不再通过短信发送，可在“钱包一卡券”或“淘票票-我的-电影票”中查看</p>
+            <p>5、下单即代表你同意《淘票票用户服务协议》</p>
+        </div>
+        <div class="list1">
+            <div class="left1">该场次不支持退票换票<img src="../images/greater.png" width="10" height="10" /></div>
+            <div class="right2">应付&nbsp;&nbsp;<span style="color:red">33.8元</span></div>
+        </div>
+        <button class="button button-full button-positive">
+            立即付款
+        </button>
+    </ion-content>
+</ion-view>

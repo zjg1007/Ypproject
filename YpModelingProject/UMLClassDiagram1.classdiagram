@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="9482bcc8-cff4-4315-bf52-4083552ddc18" name="UMLClassDiagram1" linkedPackageId="daffd628-9e0a-4af1-8dfd-3deb9e89e171" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4fa02b3a-2fbc-43fa-8ac1-4c04a864bd2c" name="User" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1426fe85-e006-4ce5-a851-58a38692a72f" />
+        <ownedAttributesInternal>
+          <property Id="3ede6de5-b7aa-4674-81c5-65138744417f" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="061a1765-917d-4f3b-8147-ba2775d47442" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="560cfaa0-c7c2-4b1f-ae9f-14d3b2f6ca27" LastKnownName="Guid" />
+            </type_NamedElement>
+          </property>
+          <property Id="973fa31b-316a-47a1-90a2-5f68a9a54287" name="手机号码" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="18d6c49c-2ab7-4970-9c5a-dcbc05f3659b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="546ae13f-43c7-407c-82b0-2aedf7d6b3a6" name="昵称" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4b79328a-743d-44f4-ab80-70d955ba450f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="916e7990-a4fb-4318-863e-6b59aed90b80" name="头像" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2f78a6d5-0999-4861-829a-004e354b9a87" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="f3a9a823-8133-465a-8dc6-42ba51d20bde" name="自我介绍" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0304a86f-da9a-4362-b5c5-19cb05eefd83" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="cf8c6e96-36fa-4c4e-8617-2bf2ba4f6294" name="是否会员" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="59295eee-f4af-4300-840e-26b5352c437d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3ef877e5-ec1b-4c33-9bf2-d547ff2ee07e" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="93596a8a-246e-4f9e-85cb-36515c0cfbbf" name="注册时间" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="021e038f-82c4-4440-86b4-93e079cbcd83" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="269d157e-82e5-4527-9915-023f9bbbd588" LastKnownName="date" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="560cfaa0-c7c2-4b1f-ae9f-14d3b2f6ca27" name="Guid" isAbstract="false" isLeaf="false" cachedFullName="Guid">
+        <elementDefinition Id="f6613100-269d-4a08-9852-83994d0633e4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="aba3fc41-0b96-4a50-abdf-9627c3403946" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="69861d33-1a5d-4651-8e6d-8e121c548390" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="37477b9f-e970-4dbf-b3f2-5700eab670e4" name="Movie" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="afacad3d-650d-4fa2-a59f-5cb6a960ce3c" />
+        <ownedAttributesInternal>
+          <property Id="bde68e6a-4e7a-4915-9c09-36320aaa8c6d" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ed8880cd-105c-4485-9ea6-da96af6a088e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="b2e5d22c-4315-4c4e-a7de-524f611725a3" name="名称" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="93de80fd-3e35-4ad5-a4eb-5cf04034c7e9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="904d333f-acb2-447e-a1cd-06d8475c4519" name="国家别称" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="063a5482-865b-405a-888d-93394ca3674a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="d4bf9d98-0465-45ea-b5e9-3137f6500168" name="类型" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="38b26a6f-a8a2-4ce8-91fa-9583e9202425" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="95bbab29-6b5e-4233-92fd-89329eb55779" name="国家" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="eaba07c9-75a3-4304-a00e-6649fb49239e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="a870d98d-8c1a-46fb-bdca-b79dae96f58e" name="时长" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1732abc0-9ef7-48ee-9a12-9352159a825a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="40bf2f51-3345-4ad8-b299-f796b6041b22" name="上映时间" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0bacce40-a787-4192-be89-3fccf05c050d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="09c7750e-a69f-4337-b34a-21a4e7dcf645" LastKnownName="dateTime" />
+            </type_NamedElement>
+          </property>
+          <property Id="31e47dd4-2c1e-469d-99b5-eaab2533d6ef" name="用户评分" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c9c410a0-ffa8-489b-8d89-2eb7a51d1901" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1336944d-4efd-43dc-8b48-4ba8dc4664b8" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="c7732221-44ac-42a0-a295-d75062440c1a" name="介绍" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="dbce3f60-739b-4860-8fe5-2b86261bff48" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="ee9a8b6b-8bc3-4e3f-8962-6b15a581957d" name="演员" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d0501bad-c397-4d8c-8214-83add7be94ba" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="4e585ed7-e15f-409d-8d9e-ac2c9a465f29" name="银幕质量" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="daf43ca6-eb92-4848-b61c-450d1004a32d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="5deff19d-7b91-4b16-8d4a-e1f0eee0bc0c" name="照片" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8253e36e-2105-4510-9d74-b77e1055fe7a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d7bf16d1-020a-4abe-ab12-51aa89800168" name="Type" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="21501179-53e5-4902-9e22-45112601d2c9" />
+        <ownedAttributesInternal>
+          <property Id="67bcd4d0-b577-4e78-9c72-84a74a0d9520" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1a9a76b1-99ab-49db-bee0-d382a7ce2f01" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="c17d4a80-54f7-417f-ad0d-869964836d23" name="名称" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7f2cf8df-7366-4738-bbac-10930f6c0d19" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="09c7750e-a69f-4337-b34a-21a4e7dcf645" name="dateTime" isAbstract="false" isLeaf="false" cachedFullName="dateTime">
+        <elementDefinition Id="97784835-e839-4d3c-9ea9-bd21e6388591" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7594999c-fbee-45b3-8089-86b1bcab91a5" name="Launch" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b691866e-c1d5-4ebe-a7c7-2afd06576fca" />
+        <ownedAttributesInternal>
+          <property Id="cfd5d399-8c37-49a4-9751-9181af9bc80b" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5390c275-8222-4d24-ab26-56a8f3de4300" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="697b6411-2f13-4739-aef1-b00f792f9fd8" name="上映时间" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b096dcb3-75af-4201-979a-2b19e7767994" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a47d2576-b087-426e-bcd0-bf7e668f746e" LastKnownName="Time" />
+            </type_NamedElement>
+          </property>
+          <property Id="f037e8e0-2a67-4e23-a24a-24780c31371f" name="国家" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="84cc552a-0167-4718-a2ee-65619a53f4a2" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="010dedb9-3570-4956-b25a-1f4a01004699" name="电影ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e663decb-dc4d-4ee3-aa71-35593d2aa374" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="dbad7d6b-7dda-40db-bf60-0aed59059510" name="地区：string" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="048e07e1-b478-4391-b64e-c83d0b517e20" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="a47d2576-b087-426e-bcd0-bf7e668f746e" name="Time" isAbstract="false" isLeaf="false" cachedFullName="Time">
+        <elementDefinition Id="fc638370-4b61-4208-bfe6-433f35f3d738" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1336944d-4efd-43dc-8b48-4ba8dc4664b8" name="float" isAbstract="false" isLeaf="false" cachedFullName="float">
+        <elementDefinition Id="fcc0a907-fa96-4c9c-bcb3-0382f4399c21" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c344a8f7-f8ed-4395-94e8-821a32f052c7" name="Comments" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8c6fb849-d6e6-469a-87bb-ec1404f8b473" />
+        <ownedAttributesInternal>
+          <property Id="51a0b132-b3fe-49a5-a0e9-e8c5fa2587f7" name="评分" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7f770cd0-2b4d-4933-ba04-4f0fbf655719" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="b78ecb58-4519-4277-bcae-8a872f2e3258" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="306f3664-0988-440d-afa7-5c07d6bbbbbc" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="c443909b-607a-4480-8927-16734ae9f723" name="内容" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6151f5c9-a1b1-482e-b7f6-17d8c1108e0a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="4f87c035-1936-42c9-aab4-18db00997fda" name="状态" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="089f1fca-8978-4018-acb9-af542cd7365a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3ef877e5-ec1b-4c33-9bf2-d547ff2ee07e" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="c78ebaf5-b952-4424-8453-1f60d26c81c0" name="用户" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c4518222-1071-4fa6-9932-9e40a1590a16" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="560cfaa0-c7c2-4b1f-ae9f-14d3b2f6ca27" LastKnownName="Guid" />
+            </type_NamedElement>
+          </property>
+          <property Id="07d008bb-a3b6-411f-9233-a16fdd4269ba" name="电影" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="dfac5523-9667-4c57-9bd9-896b2859ddaf" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="ce039d68-9697-4719-b2da-630179022603" name="点赞" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="911c0d16-2d0b-4fce-b4c1-097b0c1471ca" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="ee3c324c-6dcf-4fee-969e-50cac0ec884d" name="评论时间" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b45f9b2b-96d1-4d41-9374-887546e1fc88" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d2e4ca5b-e5a1-4d3a-8c69-e1d49500c8f3" LastKnownName="Date" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="3ef877e5-ec1b-4c33-9bf2-d547ff2ee07e" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="d78a6ed5-0b59-4b06-8383-5a205897f425" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b93541b0-4935-4e1c-b721-4237e6c660d8" name="Actor" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="20a449a9-5bbc-4afb-8bc6-2710867be1a2" />
+        <ownedAttributesInternal>
+          <property Id="4145cb99-6a62-4fb7-a1fb-8492d6f6ccfd" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="405cc42a-3d68-42ae-b84d-bfcf7c6e5f5e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="3f55d8ef-5c29-484b-abcc-d0e452886af1" name="名字" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4e2561c1-2712-4495-982c-e6ff026c5127" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="a7a647b8-b72c-42f5-98b4-0ae5dbc424ef" name="别名" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="01f6f93c-722a-4347-b6d7-30d37cbe6531" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="863207d3-233b-4472-a162-d0380a2f3914" name="出生日期" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="eef2de61-d42c-4f3d-96b5-efea1fff900a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a47d2576-b087-426e-bcd0-bf7e668f746e" LastKnownName="Time" />
+            </type_NamedElement>
+          </property>
+          <property Id="11123d5e-25c7-4c78-8b69-b9323cf91ee1" name="职业" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="825d3d1b-5348-4aa6-b9d0-17122456143f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="edd7cf30-4b32-44ea-bd4d-a7f8969b7ab3" name="简介" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="69068e92-31cf-4ff1-97b1-8b8ff7eb4e29" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="edb8224a-a9c7-4f09-91dd-7baeecc11860" name="出生地" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="878e53aa-4463-461d-9740-abd878f2f20c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="255e810b-eba6-435d-a67f-3bb22dcd933a" name="Cinema" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="dcd5e57d-d6b4-4040-ae39-6e503b9783c9" />
+        <ownedAttributesInternal>
+          <property Id="d92ff053-1862-47d8-b739-99057986d586" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="76a042c5-d01a-4559-b96e-edb66a6dfa63" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="50ecfa49-d3dc-4ebc-a18f-b50b35060c50" name="名字" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3d72d3be-8333-4301-9506-e28fb640f3de" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="0e8a0a20-a0ff-4c39-b3da-775b1f0e87eb" name="地址" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="471f4275-6819-43dc-b188-9671590a9316" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="35714db3-536e-492b-ac2e-8d90dc6f1b64" name="特色服务" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7fe1f008-dfde-44b6-86e4-be61408b10a5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="830eafef-d39a-4837-99f4-ece16886109e" name="Readyplay" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9a18073f-7464-42fb-a7fe-fc9ee977bb4c" />
+        <ownedAttributesInternal>
+          <property Id="fdb7a217-81b4-453c-bab9-11d910f88d97" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ef2b1156-4708-4b88-adf7-02de3827d65c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="3f50c1c6-5776-40ec-8be2-80d877526821" name="开始时间" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="15359f10-eac6-4c37-95ed-80e1936dc81b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e7b3cbcb-a06f-4bda-b379-7aae7c92158a" LastKnownName="time" />
+            </type_NamedElement>
+          </property>
+          <property Id="b0439a48-590c-4aba-8090-a845735b053a" name="结束时间" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d0de234a-ab61-44ca-98a7-789747f2da12" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e7b3cbcb-a06f-4bda-b379-7aae7c92158a" LastKnownName="time" />
+            </type_NamedElement>
+          </property>
+          <property Id="d7b2e44a-3bee-49a0-a360-6cb67ba3e631" name="厅号" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="21e10970-24e2-4d48-a9ce-512aafe0e2d4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d355daca-a984-499a-a534-9634baa19566" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="fac8c50a-4822-4109-af04-848d9520575a" name="电影" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="367b5f7a-735a-4d9c-aa41-adb588fa6ef7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="d1f8d652-ad60-4de3-b2ad-9a31b6183a1a" name="影院" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="90b7fb2b-f918-4a3a-972c-11077f528e4d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="e7b3cbcb-a06f-4bda-b379-7aae7c92158a" name="time" isAbstract="false" isLeaf="false" cachedFullName="time">
+        <elementDefinition Id="10d809a4-7d6a-4a2e-a370-4ca98fb97fa2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a356b9b1-24bf-4f73-8edc-5e4bb2294b22" name="Home" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="814a66ed-0625-4530-8ec3-8cf08690f169" />
+        <ownedAttributesInternal>
+          <property Id="76dfd118-06d1-4b1a-9ee1-d5c08b744f34" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="58124fd7-6c16-4e7c-83e8-62350c4f6a89" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="11f6f472-c677-4030-a363-2fea70e8a4cd" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="4ac851c5-c787-48ea-80ae-caaa1825f72e" name="银幕质量" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="814f8e65-538a-40d0-8c62-0dad719a39a4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="dc20e5b1-0148-4aec-ad17-bab21a96fe7b" name="价格" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0adffdd8-c0d8-4279-a769-29cc98eafac7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1336944d-4efd-43dc-8b48-4ba8dc4664b8" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="dd258491-5351-470a-bec3-257e5b4ac39d" name="位置" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="937bf2c2-e9b6-4c29-b7df-0c73d509da46" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="c514cb5f-9536-48d3-995d-f1e1195864fd" name="电影院ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="45ff475b-c72a-4e75-8b6b-d0f2e2764eb0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="8918e99b-872b-423c-a498-f80f14363b8b" name="名称" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0acca8be-c455-409c-91ed-67cc1aaba4bf" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="11f6f472-c677-4030-a363-2fea70e8a4cd" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="aba3fc41-0b96-4a50-abdf-9627c3403946" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d355daca-a984-499a-a534-9634baa19566" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="aba3fc41-0b96-4a50-abdf-9627c3403946" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5345b7d1-c487-48bd-b486-db41c2add8af" name="Deal" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="da5cefcc-49e8-4c2d-a999-ad188505a3fd" />
+        <ownedAttributesInternal>
+          <property Id="8475351b-ab37-442d-9698-a689d21d8382" name="订单号" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="44e9d81f-c49d-41a2-96a6-962c04af69ed" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="eced18e9-bf09-45a9-96bd-401a42c593ed" name="电影ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="03d6d589-243a-42e2-a87b-a0f61378014d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="db562b62-77b4-4d79-bccc-013bf026dd7d" name="影院ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f593dc94-8b2b-41e9-bd15-1b018d8a77fb" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2882f28-6fe2-4cdc-8efc-853876ec0dac" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="65ad7de9-2011-4ce1-8549-d6394f3f7488" name="用户ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="12c8fd03-2fbb-45d0-b97e-95676fc86e6a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9d6b25f1-616b-47fe-b2c5-b900e575664f" LastKnownName="Guid" />
+            </type_NamedElement>
+          </property>
+          <property Id="1dd1be96-d7d9-46ba-8768-f110c6aaba5b" name="实付金额" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3601916b-95f6-4de5-a3e5-fdf310c8fd34" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1336944d-4efd-43dc-8b48-4ba8dc4664b8" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="eb155c95-b4c6-487a-9bf0-f7e9d12d0223" name="取票号" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="927f9d1b-b923-41d2-a89e-2770c41158cb" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="c1d06ee1-92cd-4413-bdb3-d1a0ebd24a4e" name="购买时间" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="06a12d31-0e8a-4bfe-aee7-3c01829465a3" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e7b3cbcb-a06f-4bda-b379-7aae7c92158a" LastKnownName="time" />
+            </type_NamedElement>
+          </property>
+          <property Id="8f179199-4a6d-45d0-a843-c1e56a24770c" name="影院位置" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="73bb7e64-31a0-4346-a3a2-3e8d05cb4eeb" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3a7999e-835a-43d4-9be8-c910c2f40f8b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="9d6b25f1-616b-47fe-b2c5-b900e575664f" name="Guid" isAbstract="false" isLeaf="false" cachedFullName="Guid">
+        <elementDefinition Id="f6613100-269d-4a08-9852-83994d0633e4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="269d157e-82e5-4527-9915-023f9bbbd588" name="date" isAbstract="false" isLeaf="false" cachedFullName="date">
+        <elementDefinition Id="2169eb55-968e-4311-ad56-f0e6a5ad94e8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d2e4ca5b-e5a1-4d3a-8c69-e1d49500c8f3" name="Date" isAbstract="false" isLeaf="false" cachedFullName="Date">
+        <elementDefinition Id="4805c674-e4df-4bda-b1fc-40fc408f0893" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="daffd628-9e0a-4af1-8dfd-3deb9e89e171" name="YpModelingProject">
+    <elementDefinition Id="e757ea3f-84c1-4a41-932c-7b9c959e362a" />
+    <profileInstances>
+      <packageHasProfileInstances Id="fc7fc639-38a4-4427-8de9-7d331a0ab20c">
+        <profileInstance Id="67ddeeb9-107c-4920-a6c6-3b1525c792ac" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="a5393a48-0be2-439d-87b0-ab4dd64ceb3d">
+        <profileInstance Id="10d9ef33-899a-40cd-a7fb-6045d6a91367" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

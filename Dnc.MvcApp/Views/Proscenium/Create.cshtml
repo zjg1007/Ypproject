@@ -1,0 +1,152 @@
+﻿@using Dnc.MvcApp.Filters;
+@model IEnumerable<Dnc.Entities.Business.Readyplay>
+@{
+    ViewBag.Title = "上映信息管理";
+    Layout = "_DNC";
+}
+<style>
+    table tr td {
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    table tbody tr {
+        max-height: 40px !important;
+        overflow: hidden;
+    }
+
+    .form-control {
+        width: 220px;
+        display: inline-block;
+    }
+
+    .btn-success {
+        width: 90px;
+    }
+
+    #formIndex {
+        margin: 0 0 10px 35%;
+    }
+
+    table tr td, th {
+        text-align: center;
+    }
+</style>
+<script src="~/js/jquery.min.js"></script>
+<link href="~/css/ProsceniumStyle.css" rel="stylesheet" />
+<form id="formProsceniumInfo" asp-controller="Proscenium" asp-action="Create"
+      method="post"
+       data-ajax-update='#formProsceniumInfoContent'
+      data-ajax-mode='replace'
+      data-ajax='true'
+      >
+    <div class="panel panel-primary">
+        <div class="panel-heading ">
+            <h3 class="panel-title">新增上映信息</h3>
+        </div>
+        <div class="shangyinfo clearfix">
+            <div class="input-group  parent">
+                <span class="input-group-addon">价格</span>
+                <input type="number" id="Price" name="Price"  class="form-control Price" placeholder="请输入价格">
+            </div>
+            <div class="input-group parent">
+                <span class="input-group-addon">影院ID</span>
+                <input type="number" id="CinemaID" name="CinemaID" class="form-control CinemaID" placeholder="请输入影院ID">
+            </div>
+            <div class="input-group parent">
+                <span class="input-group-addon">影厅ID</span>
+                <input type="number" id="HomeID" name="HomeID" class="form-control HomeID" placeholder="请输入影厅ID">
+            </div>
+            <div class="input-group parent">
+                <span class="input-group-addon">电影ID</span>
+                <input type="number" id="MovieID" name="MovieID" class="form-control MovieID" placeholder="请输入电影ID">
+            </div>
+            <div class="TimeList clearfix">
+                <div class="fl" style="width:100%;height:1px;margin:4px 0;"></div>
+                <div class="input-group widhmax">
+                    <span class="input-group-addon">开始时间</span>
+                    <input id="StatTime" type="text" name="StatTime" class="form-control StatTime" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true })" />
+                </div>
+                <div class="input-group widhmax" style="margin-left:10px;">
+                    <span class="input-group-addon">结束时间</span>
+                    <input id="EndTime" name="EndTime" type="text" class="form-control EndTime" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm', readOnly: true })" />
+                </div>
+                <div class="tab">
+                    <button id="Addbtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>
+                    <button id="removebtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+            </div>
+
+        </div>
+        <div style="text-align:center; margin-top:10px;">
+            <button type="button" onclick="addProscenium()" class="btn btn-success">保存</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    var storage = window.localStorage;
+    storage.clear();
+    $('#Addbtn').click(function () {
+        $(this).remove();
+      
+        $('#removebtn').css('right', '22px');
+        $('.shangyinfo').append('<div class="TimeList clearfix">\
+<div class="fl" style="width:100%;height:1px;margin:4px 0;"></div>\
+                <div class="input-group widhmax">\
+                    <span class="input-group-addon">开始时间</span>\
+                    <input id="StatTime" type="text" name="StatTime" class="form-control StatTime" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: '+"'"+'yyyy-MM-dd HH:mm'+"'"+', readOnly: true})" />\
+                </div>\
+                <div class="input-group widhmax" style="margin-left:10px;">\
+                    <span class="input-group-addon">结束时间</span>\
+                    <input id="EndTime" name="EndTime" type="text" class="form-control EndTime" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: '+"'"+'yyyy-MM-dd HH:mm'+"'"+', readOnly: true })" />\
+                </div>\
+                <div class="tab">\
+                    <button id="Addbtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>\
+                    <button id="removebtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+                </div>\
+            </div>');
+    });
+    $(".shangyinfo").on('click', '.tab #Addbtn', function () {
+        $(this).parent('.tab').find('#removebtn').attr('style', 'right:22px!important;');
+        $(this).remove();
+        if ($('#removebtn').size() == 0) {
+            $('.tab').append('<button id="removebtn" type="button" style="right:22px!important;"  class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+        }
+        $('.shangyinfo').append('<div class="TimeList clearfix">\
+<div class="fl" style="width:100%;height:1px;margin:4px 0;"></div>\
+                <div class="input-group widhmax">\
+                    <span class="input-group-addon">开始时间</span>\
+                    <input id="StatTime" type="text" name="StatTime" class="form-control StatTime" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: '+ "'" + 'yyyy-MM-dd HH:mm' + "'" + ', readOnly: true})" />\
+                </div>\
+                <div class="input-group widhmax" style="margin-left:10px;">\
+                    <span class="input-group-addon">结束时间</span>\
+                    <input id="EndTime" name="EndTime" type="text" class="form-control EndTime" placeholder="请点击..." readonly="readonly" onclick="WdatePicker({ dateFmt: '+ "'" + 'yyyy-MM-dd HH:mm' + "'" + ', readOnly: true })" />\
+                </div>\
+                <div class="tab">\
+                    <button id="Addbtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>\
+                    <button id="removebtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+                </div>\
+            </div>');
+    });
+    $(".shangyinfo").on('click', '.tab #removebtn', function () {
+        if ($('.shangyinfo .TimeList').size() == 1) {
+            alert('请保留一个.');
+        } else {
+            $(this).parent('.tab').parent('.TimeList').remove();
+        }
+        if ($('.shangyinfo .TimeList').size() == 1) {
+            $('.shangyinfo .tab').html('<button id="Addbtn" type="button"  class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>');
+        } else {
+            $('.shangyinfo .TimeList:last').find('.tab').html('<button id="Addbtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true" style="color:red;">+</span></button>\
+                    <button id="removebtn" type="button" class="close fl pointer" aria-label="Close"><span aria-hidden="true">&times;</span></button>');
+        }
+    })
+    $(".shangyinfo").on('mouseover', '.TimeList', function () {
+        $(this).find('.tab').stop().show();
+    });
+    $(".shangyinfo").on('mouseout', '.TimeList', function () {
+        $(this).find('.tab').stop().hide();
+    });
+</script>

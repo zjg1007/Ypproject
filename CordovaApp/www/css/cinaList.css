@@ -1,0 +1,37 @@
+﻿body {
+}
+.test_box {
+    position: relative;
+    width:100%;
+    display:flex;
+}
+.test_tab {
+    flex:1;
+    margin-right: -1px;
+    border-bottom: 0;
+    float: left;
+}
+.test_label {
+    height:40px;
+    line-height:40px;
+    display: block;
+    background-color: #fff;
+    text-align: center;
+}
+.test_radio,
+.test_tab_content {
+    position: absolute;
+    left: -999em;
+}
+.test_radio:checked ~ .test_tab_content {
+    margin-top: -1px;
+    border: 1px solid #ccc;
+    left: 0;
+    right: 0;
+}
+.test_radio:checked ~ .test_label {
+    background-color: #eee;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    z-index: 1;
+}

@@ -1,0 +1,33 @@
+﻿body {
+}
+form {
+}
+.shangyinfo {width:100%;
+
+}
+    .shangyinfo .input-group {
+    float:left;
+    }
+    .shangyinfo .widhmax {
+    width:47%;
+    }
+    .shangyinfo .parent {
+    width:23%;
+    margin-right:10px;
+    }
+form {
+margin: auto;
+}
+.TimeList {
+position:relative;
+}
+    .TimeList .tab button {
+    position:absolute;
+    bottom:6px;
+    }
+        .TimeList .tab #Addbtn {
+        right:34px;
+        }
+        .TimeList .tab #removebtn {
+        right:16px;
+        }

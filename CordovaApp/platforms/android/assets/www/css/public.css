@@ -1,0 +1,27 @@
+﻿body {
+}
+a{text-decoration:none;}
+ .irighticon {
+     position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -10px;
+    color: rgb(204,204,204);
+    }
+    .fl {
+    float:left;
+    }
+    .fr{
+        float:right;
+    }
+    .clearfix:after {
+  display: block;
+  content: "clear";
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.card, .list-inset{
+    margin:0 10px;
+}

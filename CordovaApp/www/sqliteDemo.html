@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <!--
+        必要时在以下 META 标记中自定义内容安全策略。将 "unsafe-inline" 添加到 default-src 以启动内联 JavaScript。
+      有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; media-src *">-->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/portal.css">
+
+    <title>CordovaApp</title>
+</head>
+<body>
+
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" id="createDT01">创建DT01</button>
+        <button type="button" class="btn btn-default" id="getDT01">获取DT01</button>
+        <button type="button" class="btn btn-default" id="createDT02">创建DT02</button>
+        <button type="button" class="btn btn-default" id="getDT02">获取DT02</button>
+        <!--<button type="button" class="btn btn-default" id="gpsInfo">GPS数据</button>
+        <button type="button" class="btn btn-default" id="cameraInfo">拍照</button>
+        <button type="button" class="btn btn-default" id="sqliteDemo">sqliteDemo</button>-->
+    </div>
+
+    <div class="container">
+        <div id="apiContent"></div>
+    </div>
+
+    <footer class="navbar-fixed-bottom bg-info">
+        <div id="noticeContent" >处理结果</div>
+    </footer>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/sqliteDemo.js"></script>
+
+</body>
+</html>

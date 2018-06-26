@@ -1,0 +1,13 @@
+﻿<ion-view>
+    <ion-nav-title>
+        <div style="text-align:center;">上映时间</div>
+    </ion-nav-title>
+    <ion-content>
+        <div class="list list-inset">
+            <div class="item" ng-repeat="item in releaseInfo">
+                <span class="fl">{{item.date| date:"yyyy-MM-dd"}}</span>
+                <span class="fr">{{item.region}}</span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

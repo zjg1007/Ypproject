@@ -1,0 +1,22 @@
+﻿<ion-view>
+    <ion-nav-title>
+        <div style="text-align:center;">
+            想看的电影
+        </div>
+    </ion-nav-title>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left item-icon-right"
+                      ng-repeat="item in items"
+                      type="item-text-wrap">
+                <img ng-src="http://vip8.ngrok.cc{{ item.picture }}">
+                <a href="javascript:void(0);" ng-click="seleMovieindex({{item.id}})">
+                    <h2>{{item.name}}</h2>
+                    <p>☆☆★&nbsp;{{item.grade}}分</p>
+                    <h4>{{item.protagonist}}</h4>
+                    <h4>主演：{{item.director.name}}</h4>
+                </a>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

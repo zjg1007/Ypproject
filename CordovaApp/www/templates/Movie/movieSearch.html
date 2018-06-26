@@ -1,0 +1,32 @@
+﻿<ion-view>
+    <ion-nav-title>
+        <div style="text-align:center;">
+            <div class="bar bar-header item-input-inset">
+                <label class="item-input-wrapper">
+                    <i class="icon ion-ios-search placeholder-icon"></i>
+                    <input id="search" value="{{title}}" type="search" placeholder="请输入电影名称搜索">
+                </label>
+                <button ng-click="searchMociepar()" class="button button-clear">
+                    搜索
+                </button>
+            </div>
+        </div>
+</ion-nav-title>
+            <ion-content>
+                <ion-list>
+                    {{message}}
+                    <ion-item class="item item-thumbnail-left item-icon-right"
+                              ng-repeat="item in items"
+                              type="item-text-wrap">
+                        <img ng-src="http://vip8.ngrok.cc{{ item.picture }}">
+                        <a href="javascript:void(0);" ng-click="selectmovieInfo({{item.id}})">
+                            <h2>{{item.name}}</h2>
+                            <p>☆☆★&nbsp;{{item.grade}}分</p>
+                            <h4>{{item.protagonist}}</h4>
+                            <h4>主演：{{item.director.name}}</h4>
+                            </a>
+                            <a href="#/tab/currentAfairs/{{item.id}}" class="button button-large button-positive irighticon fr"> 购买</a>
+</ion-item>
+                </ion-list>
+            </ion-content>
+</ion-view>

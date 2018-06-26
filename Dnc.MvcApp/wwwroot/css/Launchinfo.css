@@ -1,0 +1,29 @@
+﻿body {
+}
+.shangyinfo {
+    width:60%;
+margin:0 auto;
+position:relative;
+margin-bottom:10px;
+padding:10px 20px;
+border:1px dashed #ddd;
+}
+    .shangyinfo div {
+    width:48%;
+    }
+    .shangyinfo button.pointer {
+    position:absolute;
+    top:16px;
+    }
+    .shangyinfo button#Addbtn {
+        right:18px;
+        }
+        .shangyinfo button.pointer:last-child {
+        right:12px;
+        }
+form {
+margin: auto;
+}
+.tab {
+    display:none;
+}

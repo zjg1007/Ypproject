@@ -1,0 +1,144 @@
+﻿@model Dnc.ViewModels.Article.UserVm
+@{
+    Layout = "_DNC";
+}
+<style>
+     #detailinfo{
+        background:#fff;
+        width:800px;
+        height:560px;
+        position:absolute;
+        margin-top:100px;
+        top:-80px;
+        left:50%;
+        margin-left:-400px;
+        transition: all .3s;
+        border:1px solid #dedede;
+        box-shadow:-4px 0px 11px 0px rgba(0,0,0,0.14);  
+        overflow:hidden;
+    }
+     #detailinfo .top{
+         font-family:'Microsoft YaHei';
+         font-size:18px;
+         line-height:50px;
+         padding-left:20px;
+         border-bottom:1px solid #dedede;
+         color:#ff6a00;
+         font-weight:bold;
+     }
+     #detailinfo  .top-title{
+         background:#eceff4 ;
+         display:block;
+         width:100%;
+         height:38px;
+         line-height:38px;
+         padding-left:10px;
+     }
+    #detailinfo .conten{
+        padding:0 20px;
+        font-family:'Microsoft YaHei';
+    }
+  
+    .btnall{
+        margin-top:40px;
+        text-align:center;
+    }
+    .form-control {
+        width:400px;
+    }
+    form{
+        padding-left:100px;
+    }
+    .mgrlabel{
+        margin-left:10px;
+    }
+    .mgrlabel input{
+        vertical-align: sub;
+    }
+</style>
+<div id="detailinfo">
+    <div class="top">
+        @Model.Name
+    </div>
+    <div class="conten">
+        <span class="top-title">用户个人信息</span>
+        <form id="formRegister" asp-controller="ArticleType" asp-action="Detail"
+              asp-route-returnurl="@ViewData["ReturnUrl"]"
+              method="post" class="form-horizontal">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.Phonr" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.Phonr" class="form-control" readonly />
+                    <span asp-validation-for="@Model.Phonr" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Name" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.Name" class="form-control" />
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Evaluation" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.Evaluation" class="form-control" />
+                    <span asp-validation-for="@Model.Evaluation" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Isvip" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.Isvip" class="form-control" />
+                    <span asp-validation-for="@Model.Isvip" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Time" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="@Model.Time" class="form-control"readonly />
+                    <span asp-validation-for="@Model.Time" class="text-danger"></span>
+                </div>
+            </div>
+            <div style="margin-top:20px;">
+                <label class="col-md-2 control-label">用户权限：</label>
+                @if (Model.ApplicationGroupName == "普通用户")
+                {
+                    <label class="mgrlabel"><input name="grup" checked="checked" type="radio" value="普通用户"/>普通用户</label>
+                }
+                else
+                {
+                    <label class="mgrlabel"><input name="grup" type="radio" value="普通用户"/>普通用户</label>
+                }
+                @if (Model.ApplicationGroupName == "管理员")
+                {
+                    <label class="mgrlabel"><input name="grup" checked="checked" type="radio" value="管理员" />管理员</label>
+                }
+                else
+                {
+                    <label class="mgrlabel"><input name="grup" type="radio"value="管理员" />管理员</label>
+                }
+                @if (Model.ApplicationGroupName == "黑名单")
+                {
+                    <label class="mgrlabel"><input name="grup" type="radio" checked="checked" value="黑名单" />黑名单</label>
+                }
+                else
+                {
+                    <label class="mgrlabel"><input name="grup" type="radio"  value="黑名单"/>黑名单</label>
+                }
+                @if (Model.ApplicationGroupName == "会员")
+                {
+                    <label class="mgrlabel"><input name="grup" type="radio" checked="checked" value="会员" />会员</label>
+                }
+                else
+                {
+                    <label class="mgrlabel"><input name="grup" type="radio"  value="会员"/>会员</label>
+                }
+            </div>
+            <div style="text-align:center;margin-top:20px;">
+                <button type="submit" class="btn btn-primary" style="width:100px;">保存</button>
+            </div>
+            </form>
+</div>
+</div>

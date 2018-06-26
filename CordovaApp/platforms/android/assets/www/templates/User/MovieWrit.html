@@ -1,0 +1,20 @@
+﻿<link href="css/movieWrit.css" rel="stylesheet" />
+<ion-view>
+    <ion-nav-title>
+        <div style="text-align:center;">已买到
+        </div>
+    </ion-nav-title>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left item-icon-right"
+                      ng-repeat="item in items"
+                      type="item-text-wrap"
+                      ng-click="seleInfo({{item.readplayid}},{{item.indent}})">
+                    <h2>{{item.movieName}}&nbsp;&nbsp;{{item.movieCount}}张</h2>
+                    <h3>{{item.date | date:"yyyy-MM-dd  HH:mm"}}</h3>
+                    <h3>{{item.cinemaName}}</h3>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

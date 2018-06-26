@@ -1,0 +1,22 @@
+<!--
+使用 tab-positive 样式创建带有 icon 和 label 的卡片，
+    每一个 tab 的 <ion-nav-view> 代码标签都有自己的导航历史纪录，
+    以便记录其进入或者退出的转换历史。    
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+    <ion-tab title="电影" icon-off="ion-ios-crop" icon-on="ion-ios-crop-strong" href="#/tab/currentAfairs">
+        <ion-nav-view name="tab-currentAfairs"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="影院" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/opinionLeaders">
+        <ion-nav-view name="tab-opinionLeaders"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="我" icon-off="ion-ios-color-filter-outline" icon-on="ion-ios-color-filter" href="#/tab/topic">
+        <ion-nav-view name="tab-topic"></ion-nav-view>
+    </ion-tab>
+    <!--<ion-tab title="选座" icon-off="ion-ios-world-outline" icon-on="ion-ios-world" href="#/tab/abroadNews">
+        <ion-nav-view name="tab-abroadNews"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="确认订单" icon="bar-home-on" icon-on="bar-home-on" icon-off="bar-home-off" href="#/tab/frontLineOfTechnology">
+        <ion-nav-view name="tab-frontLineOfTechnology"></ion-nav-view>
+    </ion-tab>-->
+</ion-tabs>
